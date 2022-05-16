@@ -32,8 +32,8 @@ class RegisterFormLocators:
             ('test@test.com', 'Qwerty12345', 'Correct register data'),
             ('abc', 'Qwerty12345', 'Login 3 symbols'),
             ('qwertyuiopasdfghjklzxcvbnmqwertyuiopasdf', 'Qwerty12345', 'Login 40 symbols'),
-            ('test@test.com', 'Qwerty12345', 'Correct register data'),
-            ('test@test.com', 'Ab123456789123456789', 'Correct register data')
+            ('test@test.com', 'Ab123456', 'Password 8 symbols'),
+            ('test@test.com', 'Ab123456789123456789', 'Password 20 symbols')
         ]
     }
     REGISTER_FORM_EMAIL = (By.ID, 'userNameOnRegister')
