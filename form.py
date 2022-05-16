@@ -39,9 +39,12 @@ class LoginForm(BasePage):
 
 
 class RegisterForm(BasePage):
-
     def check_for_correct_register(self, comment):
         assert 'Successfully registered!' in self.browser.find_element(*RegisterFormLocators.REGISTER_MESSAGE).text,\
+            comment
+
+    def check_for_incorrect_register(self, comment):
+        assert 'Successfully registered!' not in self.browser.find_element(*RegisterFormLocators.REGISTER_MESSAGE).text, \
             comment
 
     def go_to_login_form(self):

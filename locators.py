@@ -11,20 +11,29 @@ class LoginFormLocators:
     LOGIN_TITLE = (By.ID, 'loginForm')
     LOGIN_SUCCESS_MESSAGE = (By.ID, 'successMessage')
     LOGIN_FORM_INVALID_MESSAGE = (By.ID, 'errorMessage')
-    DATA_FOR_LOGIN = {
+    DATA_FOR_INCORRECT_LOGIN = {
         'argnames': 'username,password,comment',
         'argvalues': [
-            ('Ab', '12345678', 'Space before login'),
-            ('Abc ', '12345678', 'Space after login')
+            (' test@test.com', 'Ab12345678', 'Space before login'),
+            ('test@test.com ', 'Ab12345678', 'Space after login'),
+            ('Ab', 'Ab12345678 ', 'Login 2 symbols'),
+            ('   ', 'Ab12345678', 'Login from spaces'),
+            ('test@test.com', 'ab12345678', 'Only lower symbols in the password'),
+            ('test@test.com', 'AB12345678', 'Only higher symbols in the password '),
+            ('test@test.com', '        ', 'Only spaces in the password')
         ]
     }
 
 
 class RegisterFormLocators:
-    DATA_FOR_REGISTER = {
+    DATA_FOR_CORRECT_REGISTER = {
         'argnames': 'username,password,comment',
         'argvalues': [
-            ('test1@test.com', 'Qwerty12345', 'Correct register data'),
+            ('test@test.com', 'Qwerty12345', 'Correct register data'),
+            ('abc', 'Qwerty12345', 'Login 3 symbols'),
+            ('qwertyuiopasdfghjklzxcvbnmqwertyuiopasdf', 'Qwerty12345', 'Login 40 symbols'),
+            ('test@test.com', 'Qwerty12345', 'Correct register data'),
+            ('test@test.com', 'Ab123456789123456789', 'Correct register data')
         ]
     }
     REGISTER_FORM_EMAIL = (By.ID, 'userNameOnRegister')
